@@ -1,0 +1,80 @@
+[package]
+name        = "scip-python"
+version     = "0.1.0"
+edition     = "2024"
+license     = "EUPL-1.2"
+repository  = "https://github.com/faukah/scip-python"
+description = "SCIP indexer for Python, built on ty"
+readme      = "README.md"
+keywords    = [ "scip", "python", "indexer", "code-navigation" ]
+categories  = [ "command-line-utilities", "development-tools" ]
+
+[dependencies]
+ignore             = "0.4.25"
+misstep            = { features = [ "pretty" ], version = "0.3.0" }
+pound              = "0.4.2"
+protobuf           = "3.7.2"
+ruff_db            = { features = [ "os" ], version = "=0.0.18" }
+ruff_python_ast    = "=0.0.18"
+ruff_source_file   = "=0.0.18"
+ruff_text_size     = "=0.0.18"
+salsa              = "0.28.5"
+scip               = "0.10.0"
+ty_module_resolver = "=0.0.18"
+ty_python_core     = "=0.0.18"
+ty_python_semantic = "=0.0.18"
+ty_vendored        = "=0.0.18"
+url                = "2.5.8"
+
+[profile.release]
+codegen-units = 1
+lto           = "fat"
+strip         = true
+
+[lints.clippy]
+cargo    = { level = "warn", priority = -1 }
+nursery  = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+
+blanket_clippy_restriction_lints = "allow"
+restriction                      = { level = "warn", priority = -1 }
+
+arbitrary_source_item_ordering     = "allow"
+arithmetic_side_effects            = "allow"
+as_conversions                     = "allow"
+doc_paragraphs_missing_punctuation = "allow"
+else_if_without_else               = "allow"
+exhaustive_enums                   = "allow"
+exhaustive_structs                 = "allow"
+expect_used                        = "allow"
+implicit_return                    = "allow"
+indexing_slicing                   = "allow"
+integer_division                   = "allow"
+integer_division_remainder_used    = "allow"
+let_underscore_must_use            = "allow"
+let_underscore_untyped             = "allow"
+map_err_ignore                     = "allow"
+missing_asserts_for_indexing       = "allow"
+missing_docs_in_private_items      = "allow"
+missing_errors_doc                 = "allow"
+missing_inline_in_public_items     = "allow"
+missing_trait_methods              = "allow"
+mod_module_files                   = "allow"
+module_name_repetitions            = "allow"
+multiple_crate_versions            = "allow"
+must_use_candidate                 = "allow"
+needless_borrowed_reference        = "allow"
+print_stderr                       = "allow"
+print_stdout                       = "allow"
+pub_use                            = "allow"
+pub_with_shorthand                 = "allow"
+question_mark_used                 = "allow"
+ref_patterns                       = "allow"
+semicolon_outside_block            = "allow"
+separated_literal_suffix           = "allow"
+single_call_fn                     = "allow"
+single_char_lifetime_names         = "allow"
+std_instead_of_alloc               = "allow"
+std_instead_of_core                = "allow"
+tests_outside_test_module          = "allow"
+unwrap_used                        = "allow"
